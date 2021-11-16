@@ -11,14 +11,13 @@
   <link rel="stylesheet" href="public/css/app.css">
   <link rel="stylesheet" href="public/css/style.css">
 
-
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Atsushi Hayashida</a>
+        <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -29,10 +28,19 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#work">work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#skill">skill</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-me">work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#history">history</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">contact</a>
             </li>
           </ul>
         </div>
@@ -41,48 +49,89 @@
 
   </header>
 
-  <main>
-    <article id="top" class="vw-100 vh-100 flex-center">
-      <section>
+  <main class="w-100" style="overflow-x: hidden;">
 
-        <div class="b-top-square">
-          <div class="e-square m-back"></div>
-          <div class="e-square m-midle"></div>
-          <div class="e-square m-front"></div>
-        </div>
 
-        <div class="b-site-title">
-          <div class="e-site-title m-bg"></div>
-          <div class="e-site-title m-opacity"></div>
-          <div class="e-site-title m-border"></div>
-          <div class="e-site-title m-stroke flex-center">Hayashida's portfolio!</div>
-          <div class="e-site-title m-title flex-center">Hayashida's portfolio!</div>
-        </div>
 
-        <div>
 
-        </div>
 
-        <a href="#works" class="anchor"><i class="down-icon bi bi-arrow-down-square"></i></a>
-      </section>
+
+
+
+
+    <article id="top" class="b-site-top">
+
+      <div class="b-top-square">
+        <div class="e-square m-back"></div>
+        <div class="e-square m-midle"></div>
+        <div class="e-square m-front"></div>
+      </div>
+
+      <div class="b-site-title">
+        <div class="e-site-title m-bg"></div>
+        <div class="e-site-title m-opacity"></div>
+        <div class="e-site-title m-border"></div>
+        <h1 class="e-site-title m-stroke flex-center">Hayashida's portfolio!</h1>
+        <h1 class="e-site-title m-title flex-center">Hayashida's portfolio!</h1>
+      </div>
+
+      <a href="#about-me" class="anchor b-top-down-arrow"><i class="down-icon bi bi-arrow-down-square"></i></a>
 
     </article>
 
     <!-- -------- -->
     <!-- about me -->
     <!-- -------- -->
-    <article class="vh-100 b-about-me">
+    <article id="about-me" class="b-about-me">
       <div class="e-bg m-white"></div>
       <div class="e-bg m-zigzag"></div>
       <section>
-        <h2>作者について</h2>
-        <div class="e-profile">
-          <div class="e-img"></div>
-          <div class="e-description">
-            熊本出身の猫が大好きなエンジニア。
-            2年間、東京で新聞奨学生制度を利用してゲームデザインを学んだのち、ゲーム開発会社でデザインに関わる様々なことに従事。この間にコードを書く楽しさに目覚めてプログラマーに転職。
-            AndroidJavaのアプリ開発からキャリアをスタートし、現在はWebのLP制作や業務アプリ開発を経験してきました。
+        <h2>私について</h2>
+
+        <div class="b-profile-box container">
+          <div class="b-down-arrow m-left"></div>
+          <div class="row align-items-center">
+            <div class="col-sm-3">
+              <div class="e-img"></div>
+            </div>
+            <div class="col-sm-9 e-description">
+              熊本出身の猫好きエンジニア。<br>
+              2年間、東京で新聞奨学生制度を利用してゲームデザインを学んだのち、
+              ゲーム開発会社でデザインに関わる様々なことに従事。
+              スクリプトを書く楽しさに目覚めてプログラマーに転職。
+              AndroidJavaのアプリ開発からキャリアをスタートし、
+              WebのLP制作や業務アプリ開発を経験してきました。
+            </div>
           </div>
+        </div>
+
+        <div class="b-links-box container">
+          <div class="row">
+            <div class="e-new-line">
+              <div class="b-down-arrow m-right"></div>
+            </div>
+            <div class="e-links col">
+              <div class="e-link">
+                blog :
+                <a href="https://kokoiine.weblike.jp/blog" target="_blank">
+                  https://kokoiine.weblike.jp/blog</a>
+              </div>
+              <div class="e-link">
+                git :
+                <a href="https://github.com/lafrin?tab=repositories" target="_blank">
+                  https://github.com/lafrin?tab=repositories</a>
+              </div>
+              <div class="e-link">
+                qiita :
+                <a href="https://qiita.com/riris-lafih" target="_blank">https://qiita.com/riris-lafih</a>
+              </div>
+              <div class="e-link">
+                twitter :
+                <a href="https://twitter.com/webpg_next" target="_blank">https://twitter.com/webpg_next</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
       <div>
@@ -91,82 +140,245 @@
     </article>
 
 
+    
+    <!-- -------- -->
+    <!-- work     -->
+    <!-- -------- -->
 
-    <article id="works">
-      <section class="b-work-box">
-        <div class="e-work-box b-work-card card">
-          <div class="m-work-box card-body">
-            <h5>2021/10/1～</h5>
-            <h2 class="card-title">
-              飲食向けの配膳Webアプリ
-            </h2>
-            <span>注文から配膳、会計までを管理するWebアプリです。
-              現在、開発中です。</span>
-            <div class="b-work-tmb">
-              <img alt="">
-              <img alt="">
-              <img alt="">
-            </div>
+    <!-- モーダルのテンプレート -->
+    <script type="text/x-template" id="modal-template">
+      <div class="modal-mask" @click="$emit('close')">
+        <div class="modal-wrapper">
+          <div class="modal-container">
+
+            <button type="button" class="btn-close" @click="$emit('close')"></button>
+
+            <slot name="left"></slot>
+
           </div>
         </div>
-        <div class=" b-work-img">
-          <img class="m-img" src="public/img/haizen_01.jpg" alt="">
-        </div>
-      </section>
+      </div>
+    </script>
 
-    </article>
-
-
-
-
-
-    <article id="about" class="vh-100 flex-center">
-      <section>
-
-        <h2 class="text-center">私のこれまで</h2>
-
-        <div>
-          <div>icon</div>
-          <div>
-            <div>
-              熊本出身のエンジニア。
-              新聞奨学生制度を利用して、2年のあいだ東京で新聞配達をしながらデザイン学校に通う。
-              そのまま東京でゲーム会社に就職して約7年ゲーム開発に従事。コードを書く楽しさに目覚めてプログラマーに転職。
-              AndroidJavaのアプリ開発からキャリアをスタートし、現在はWebのLPや業務アプリの業務を経験してきました。
-            </div>
-            <div>blob</div>
-            <div>git</div>
-            <div>qiita</div>
-            <div>twitter</div>
+    <!-- 一覧 -->
+    <div id="vue-work-box">
+      <article id="work" class="b-work-article flex-center ">
+        <section class="b-work-container">
+          <h2>制作実績</h2>
+          <div class="container b-image-box">
+              <div class="b-down-arrow m-left"></div>
+              <div class="row">
+                <div class="col-sm-4 col-6 mb-4" v-for="work in works" :key="work.title">
+                  <div class="e-image m-haizen mb-2" type="button" @click="showWorkModal(work.id)" :style="{ backgroundImage: 'url(public/img/work/' + work.url + ')' }"></div>
+                  <div class="text-center">{{ work.title }}</div>
+                </div>
+              </div>
           </div>
+        </section>
+      </article>
+
+      <!-- モーダルの中身 -->
+      <transition name="modal">
+        <modal v-if="showModal" @close="showModal = false">
+          <template v-slot:left>
+            <div class="container">
+              <div class="b-work-modal-box row">
+                <div class="e-describe-box px-1 col-sm-5">
+                  <div class="e-title-box mt-2">
+                    <h4 class="e-title title-bottom">{{ title }}</h4>
+                  </div>
+                  
+                  <span class="e-describe">{{ describe }}</span>
+
+                  <div class="e-tool-box mt-4">
+                    <h5 class="e-tool-title title-bottom">使用ツール</h5>
+                    <div class="e-tool-names mt-2">{{ tool }}</div>
+                  </div>
+                </div>
+
+                <div class="e-image-box col-sm-7">
+                  <div class="e-main-image" id="work-main-image"></div>
+                  <div class="e-thumbnail-box">
+                    <div class="e-thumbnail" :style="{ backgroundImage: 'url(public/img/work/' + image + ')' }"></div>
+
+                    <div class="e-thumbnail m-thumbnail" alt=""></div>
+                    <div class="e-thumbnail m-thumbnail" alt=""></div>
+                    <div class="e-thumbnail m-thumbnail" alt=""></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </modal>
+      </transition>
+    </div>
+
+
+    <!-- -------- -->
+    <!-- skill    -->
+    <!-- -------- -->
+    <article id="skill" class="flex-center">
+      <section>
+        <h2>スキル</h2>
+        <p>何にでも手を出したくなる性格とひとりで何でも出来たほうが良いと思い技術を磨いてきました。
+          今ひとつ専門的に欠けているので、バックエンドの技術を伸ばしたいと思っています。</p>
+        <p></p>
+        <div class="container b-skill-conteiner">
+          <div id="vue-skill-box" class="row"> 
+            <!-- <h3>フロント</h3> -->
+            <div class="col-sm-4 col-6 my-4 e-skill-box" v-for="skill in skills" :key="skill.id">
+              <div class="b-down-arrow m-left"></div>
+              <div class="p-3">
+                <canvas :id="skill.title" width="400" height="400"></canvas>
+              </div>
+            </div>
+          </div>
+          <ul>
+            <li>１：個人で実装したことがある</li>
+            <li>２：実務で実装したことがある</li>
+            <li>３：実務で問題なく使える</li>
+          </ul>
         </div>
 
-        <button class="btn btn-primary">詳しく↓</button>
-        <div>年表を書く</div>
-      </section>
-      <section>
-        <div></div>
+        デザインスキル書く？
       </section>
     </article>
 
-    <article id="hope" class="vh-100">
-      <section class="b-works">
-        <h2 class="text-center">エンジニアへの想い</h2>
+
+    <!-- -------- -->
+    <!-- history  -->
+    <!-- -------- -->
+    <article id="history" class="flex-center flex-column">
+      <section class="b-history-container">
+
+        <!-- <div class="b-clock">
+          <div class="e-square m-back"></div>
+          <div class="e-square m-midle"></div>
+          <div class="e-square m-front"></div>
+        </div> -->
+
+        <h2 class="text-center">マイヒストリー</h2>
+        bgを時計にする
+
+
+        <div id="vue-history-box">
+          <!-- <button v-on:click="historyClose()" class="e-show-all btn btn-primary">すべてを暴露(表示)する</button> -->
+
+          <div v-for="history in histories" :class="{'m-close': history.isClose}" :data-dd="history.isClose" :key="history.title">
+            <div class="b-history-box mt-4">
+              <div class="b-down-arrow m-left"></div>
+              <div class="e-year">{{ history.year }}</div> 
+              <div class="e-history-box">
+                <h3 class="e-title">{{ history.title }}</h3>
+                <div class="row">
+                  <div class="e-image flex-center col-sm-2">
+                    <div class="e-image-bg">
+                      <div class="e-image-url" :style="{ backgroundImage: 'url(public/img/history/' + history.image + ')' }"></div>
+                    </div>
+                  </div>
+                  <div class="e-comment-box  col-sm-8">
+                    <div class="b-balloon m-left">
+                      <div class="e-comment">{{ history.comment }}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
       </section>
+
+      <section class="my-5"> 
+        <h2 class="text-center">Webエンジニアへの想い</h2>
+        <div class="m-4">私にとってプログラミングはパズルのようなものです。<br>ひとつひとつ関数というピースを作り、繋ぎ合わせて組み立てて、大きな絵が出来上がる。
+          この工程がたまらなく好きです。
+          表面上は美しくとも、裏の作りが雑だとすぐにボロがでてきますので、保守しやすい形に作り上げることを心がけています。</div>
+        
+        <!-- <div>もともと開発はAndroidJavaからのスタートでしたが、iOSなどの他の媒体でも使って貰うにはWebで作った方が手っ取り早いと考えて、PHPへ移行しました。</div> -->
+      </section>
+
     </article>
 
-    <article class="vh-100">
 
-      <h2 class="text-center">コンタクト</h2>
-      <div>ご覧いただきありがとうございました。</div>
-      <div></div>
+    <!-- -------- -->
+    <!-- contact  -->
+    <!-- -------- -->
+
+    <article class="flex-center">
+      <section class="my-5 b-form-container">
+        <h2 class="text-center">コンタクト</h2>
+        <div class="m-4">ご覧いただきありがとうございました。<br>
+        ご感想などありましたら下記よりお送りください。</div>
+        
+        <div id="vue-mail-form">
+          <form @submit.prevent="sendMail" class="mt-5 mx-4 b-form" method="post" action="/">
+            <div class="mb-3">
+              <label for="form-name">お名前<span class="check-cercle mx-2" :class="{'is-checked': !validation.name}"></span></label>
+              <input v-model="form.name" type="text" class="col-12 form-control" id="form-name">
+              <small class='e-error' v-show="validation.name">{{ errorMessage.name }}</small>
+            </div>
+            <div class="mb-3" style="position:relative">
+              <label for="form-email">メールアドレス<span class="check-cercle mx-2" :class="{'is-checked': !validation.email}"></span></label>
+              <input v-model="form.email" type="email" class="col-12 form-control" id="form-email" placeholder="name@example.com">
+              <small class='e-error' v-show="validation.email">{{ errorMessage.email }}</small>
+            </div>
+            <div class="mb-3">
+              <label for="form-comment">コメント<span class="check-cercle mx-2" :class="{'is-checked': !validation.comment}"></span></label>
+              <textarea v-model="form.comment" class="col-12  form-control" name="contact" id="form-comment"  rows="5"></textarea>
+              <small class='e-error' v-show="validation.comment">{{ errorMessage.comment }}</small>
+            </div>
+
+            <div class="text-center">
+              <button :disabled="isValid" class="btn btn-primary btn-send" >送信</button>
+            </div>
+          </form>
+        </div>
+
+      </section>
+      
     </article>
+
+    <footer class="b-footer">
+      <section class="b-footer">
+
+      </section>
+
+    </footer> 
+
+
+
+
+
   </main>
 </body>
 
+
+
+
+
+
+
+
 <script src="public/js/app.js"></script>
+<script src="public/js/portfolio.js"></script>
+
 <script>
   $(function () {
+    const nav = document.getElementsByClassName('navbar');
+    const navOpacity = 'navbar-opacity';
+
+    window.addEventListener('scroll', function(e){
+      if(window.scrollY > 0){
+        nav[0].classList.add(navOpacity);
+      }else{
+        nav[0].classList.remove(navOpacity);
+      }
+    })
+
+
+
     //画像クリックでアンカーへ移動
     $('.anchor').on('click', function () {
       let adjust = 0;
@@ -181,7 +393,13 @@
       });
       return false;
     });
+
+
   });
+
+  
+
+
 </script>
 
 </html>
