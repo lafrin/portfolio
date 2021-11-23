@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="public/css/app.css">
   <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/kamihubuki.css">
 
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light mx-4 mt-2 px-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -28,19 +29,22 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#work">work</a>
+              <a class="nav-link anchor" href="#game">game</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#skill">skill</a>
+              <a class="nav-link anchor" href="#about-me">about-me</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about-me">work</a>
+              <a class="nav-link anchor" href="#work">work</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#history">history</a>
+              <a class="nav-link anchor" href="#skill">skill</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">contact</a>
+              <a class="nav-link anchor" href="#history">history</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link anchor" href="#contact">contact</a>
             </li>
           </ul>
         </div>
@@ -51,15 +55,7 @@
 
   <main class="w-100" style="overflow-x: hidden;">
 
-
-
-
-
-
-
-
-
-    <article id="top" class="b-site-top">
+    <article id="top" class="b-site-top flex-center">
 
       <div class="b-top-square">
         <div class="e-square m-back"></div>
@@ -67,24 +63,74 @@
         <div class="e-square m-front"></div>
       </div>
 
-      <div class="b-site-title">
-        <div class="e-site-title m-bg"></div>
-        <div class="e-site-title m-opacity"></div>
-        <div class="e-site-title m-border"></div>
-        <h1 class="e-site-title m-stroke flex-center">Hayashida's portfolio!</h1>
-        <h1 class="e-site-title m-title flex-center">Hayashida's portfolio!</h1>
-      </div>
+      <div>
+        <div class="b-site-title-box mt-5 mx-auto">
+          <div class="e-site-title m-bg mx-auto"></div>
+          <div class="e-site-title m-opacity mx-auto"></div>
+          <div class="e-site-title m-border mx-auto"></div>
+          <h1 class="e-site-title m-stroke flex-center mx-auto">Hayashida's<br>portfolio!</h1>
+          <h1 class="e-site-title m-title flex-center mx-auto">Hayashida's<br>portfolio!</h1>
+        </div>
 
-      <a href="#about-me" class="anchor b-top-down-arrow"><i class="down-icon bi bi-arrow-down-square"></i></a>
+        
+        <div class="b-site-text-box">
+          <h3 class="e-play-game mt-5">Let's play the game!</h3>
+
+          <a href="#game" class="anchor b-top-down-arrow flex-center m-animation"><i class="down-icon bi bi-arrow-down-square"></i></a>
+        </div>
+      </div>
 
     </article>
 
+
+    
+    <!-- -------- -->
+    <!-- game     -->
+    <!-- -------- -->
+    <article id="game" class="b-game-conteiner flex-center">
+      <div id="vue-top-game" class="b-game-box conteiner">
+
+        <div class="e-text">
+          <div>ブロックをタップすると角のブロックが反転します。</div>
+          <div>全て赤色にしてみましょう。</div>
+        </div>
+
+        <div class="e-table-box px-4 mt-2">
+          <div class="confetti" :class="{'m-show': clear}"></div>
+          <h4 class="e-congratulations px-3" :class="{'m-show': clear}">Congratulations !</h4>
+          <table class="e-game-table mx-auto mt-2"> 
+            <tbody>
+              <tr v-for="(row, rowIndex) in table" :key=row.rowIndex>
+                <td 
+                  v-for="(col, colIndex) in row"
+                  class="e-box"
+                  :class="'box_' + rowIndex + '-' + colIndex, {'m-true': col}"
+                  :key="col.colIndex"
+                  @click="boxTurn(rowIndex, colIndex)"
+                ></td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-outline-primary btn-rounded mt-5" @click="shuffle()">shuffle</button>
+          <a href="#about-me" :class="{'m-show': clear}" class="anchor b-top-down-arrow flex-center mt-5"><i class="down-icon bi bi-arrow-down-square"></i></a>
+
+        </div>
+        
+
+      </div><!-- b-game-box end -->
+
+
+    </article>
+
+
+
+    
     <!-- -------- -->
     <!-- about me -->
     <!-- -------- -->
     <article id="about-me" class="b-about-me">
-      <div class="e-bg m-white"></div>
-      <div class="e-bg m-zigzag"></div>
+      <!-- <div class="e-bg m-white"></div> -->
+      <!-- <div class="e-bg m-zigzag"></div> -->
       <section>
         <h2>私について</h2>
 
@@ -147,12 +193,12 @@
 
     <!-- モーダルのテンプレート -->
     <script type="text/x-template" id="modal-template">
-      <div class="modal-mask" @click="$emit('close')">
+      <div class="modal-mask" @click="clickHideBG">
         <div class="modal-wrapper">
           <div class="modal-container">
-
-            <button type="button" class="btn-close" @click="$emit('close')"></button>
-
+            <div class="e-close-box px-4 pb-3">
+              <button type="button" class="btn-close " @click="$emit('close')"></button>
+            </div>
             <slot name="left"></slot>
 
           </div>
@@ -163,13 +209,15 @@
     <!-- 一覧 -->
     <div id="vue-work-box">
       <article id="work" class="b-work-article flex-center ">
+        <!-- <div class="e-bg m-white"></div> -->
+        <div class="e-bg m-zigzag"></div>
         <section class="b-work-container">
           <h2>制作実績</h2>
           <div class="container b-image-box">
               <div class="b-down-arrow m-left"></div>
               <div class="row">
-                <div class="col-sm-4 col-6 mb-4" v-for="work in works" :key="work.title">
-                  <div class="e-image m-haizen mb-2" type="button" @click="showWorkModal(work.id)" :style="{ backgroundImage: 'url(public/img/work/' + work.url + ')' }"></div>
+                <div class="col-md-4 col-6 mb-4" v-for="work in works" :key="work.title">
+                  <div class="e-image m-haizen mb-2" type="button" @click="showWorkModal(work.id)" :style="{ backgroundImage: 'url(public/img/work/' + work.files[0] + ')' }"></div>
                   <div class="text-center">{{ work.title }}</div>
                 </div>
               </div>
@@ -183,7 +231,7 @@
           <template v-slot:left>
             <div class="container">
               <div class="b-work-modal-box row">
-                <div class="e-describe-box px-1 col-sm-5">
+                <div class="e-describe-box px-5 col-md-5">
                   <div class="e-title-box mt-2">
                     <h4 class="e-title title-bottom">{{ title }}</h4>
                   </div>
@@ -192,18 +240,19 @@
 
                   <div class="e-tool-box mt-4">
                     <h5 class="e-tool-title title-bottom">使用ツール</h5>
-                    <div class="e-tool-names mt-2">{{ tool }}</div>
+                    <div class="e-tool-names my-3 ">{{ tool }}</div>
+                  </div>
+
+                  <div class="e-git-box mt-4">
+                    <a class="e-url" v-if="url" v-bind:href="url" target="_blank"><i class="bi bi-globe2"></i> Site</a>
+                    <a class="e-git" v-if="git" v-bind:href="git" target="_blank"><i class="bi bi-github"></i> Git</a>
                   </div>
                 </div>
 
-                <div class="e-image-box col-sm-7">
-                  <div class="e-main-image" id="work-main-image"></div>
+                <div class="e-image-box px-4 col-md-7">
+                  <div class="e-main-image" id="work-main-image" :style="{ backgroundImage: 'url(public/img/work/' + image + ')' }"></div>
                   <div class="e-thumbnail-box">
-                    <div class="e-thumbnail" :style="{ backgroundImage: 'url(public/img/work/' + image + ')' }"></div>
-
-                    <div class="e-thumbnail m-thumbnail" alt=""></div>
-                    <div class="e-thumbnail m-thumbnail" alt=""></div>
-                    <div class="e-thumbnail m-thumbnail" alt=""></div>
+                    <div class="e-thumbnail" @click="clickThumbnail" v-for="file in files" :key="id" :data-img="file" :style="{ backgroundImage: 'url(public/img/work/' + file + ')' }"></div>
                   </div>
                 </div>
               </div>
@@ -218,38 +267,40 @@
     <!-- skill    -->
     <!-- -------- -->
     <article id="skill" class="flex-center">
-      <section>
+      <section id="vue-skill-box" >
         <h2>スキル</h2>
-        <p>何にでも手を出したくなる性格とひとりで何でも出来たほうが良いと思い技術を磨いてきました。
-          今ひとつ専門的に欠けているので、バックエンドの技術を伸ばしたいと思っています。</p>
-        <p></p>
+        <div class="mt-4">
+          <p>ひとりで何でも出来たほうが良いと思い技術を磨いてきました。<br>
+            今ひとつ専門的に欠けているので、今後はバックエンドを主軸にスキルを伸ばしたいと考えています</p>
+        </div>
         <div class="container b-skill-conteiner">
-          <div id="vue-skill-box" class="row"> 
+          <div class="row"> 
             <!-- <h3>フロント</h3> -->
-            <div class="col-sm-4 col-6 my-4 e-skill-box" v-for="skill in skills" :key="skill.id">
-              <div class="b-down-arrow m-left"></div>
-              <div class="p-3">
-                <canvas :id="skill.title" width="400" height="400"></canvas>
+            <div class="col-md-4 my-3 e-skill-box" v-for="skill in skills" :key="skill.id">
+              <!-- <div class="b-down-arrow m-left"></div> -->
+              <div class="">
+                <canvas :id="skill.title" width="400" height="300"></canvas>
               </div>
             </div>
           </div>
-          <ul>
-            <li>１：個人で実装したことがある</li>
-            <li>２：実務で実装したことがある</li>
-            <li>３：実務で問題なく使える</li>
-          </ul>
         </div>
-
-        デザインスキル書く？
+        <ul class="mt-2">
+          <li>１：個人で実装したことがある</li>
+          <li>２：実務で実装したことがある</li>
+          <li>３：実務で問題なく使える</li>
+          <li>４：深く理解している</li>
+        </ul>
       </section>
     </article>
+
+
 
 
     <!-- -------- -->
     <!-- history  -->
     <!-- -------- -->
-    <article id="history" class="flex-center flex-column">
-      <section class="b-history-container">
+    <article id="history" class="flex-center flex-column mt-5">
+      <section class="b-history-container my-5">
 
         <!-- <div class="b-clock">
           <div class="e-square m-back"></div>
@@ -258,8 +309,6 @@
         </div> -->
 
         <h2 class="text-center">マイヒストリー</h2>
-        bgを時計にする
-
 
         <div id="vue-history-box">
           <!-- <button v-on:click="historyClose()" class="e-show-all btn btn-primary">すべてを暴露(表示)する</button> -->
@@ -272,7 +321,7 @@
                 <h3 class="e-title">{{ history.title }}</h3>
                 <div class="row">
                   <div class="e-image flex-center col-sm-2">
-                    <div class="e-image-bg">
+                    <div class="e-image-bg" data-aos="zoom-in" data-aos-easing="ease-in-out-quad">
                       <div class="e-image-url" :style="{ backgroundImage: 'url(public/img/history/' + history.image + ')' }"></div>
                     </div>
                   </div>
@@ -292,11 +341,14 @@
 
       <section class="my-5"> 
         <h2 class="text-center">Webエンジニアへの想い</h2>
-        <div class="m-4">私にとってプログラミングはパズルのようなものです。<br>ひとつひとつ関数というピースを作り、繋ぎ合わせて組み立てて、大きな絵が出来上がる。
-          この工程がたまらなく好きです。
-          表面上は美しくとも、裏の作りが雑だとすぐにボロがでてきますので、保守しやすい形に作り上げることを心がけています。</div>
-        
-        <!-- <div>もともと開発はAndroidJavaからのスタートでしたが、iOSなどの他の媒体でも使って貰うにはWebで作った方が手っ取り早いと考えて、PHPへ移行しました。</div> -->
+        <div class="m-4">
+          <h5 class="">私にとってプログラミングはパズルです。</h5>
+          <div class="">ひとつひとつ関数というピースを作り、繋ぎ合わせて組み立てて、大きな絵が出来上がる。
+            この工程がたまらなく好きです。
+            表面上は美しくとも、裏の作りが雑だとすぐにボロがでてきますので、保守しやすい形に作り上げることを心がけています。
+          </div>
+        </div>
+          
       </section>
 
     </article>
@@ -306,7 +358,7 @@
     <!-- contact  -->
     <!-- -------- -->
 
-    <article class="flex-center">
+    <article class="flex-center" id="contact">
       <section class="my-5 b-form-container">
         <h2 class="text-center">コンタクト</h2>
         <div class="m-4">ご覧いただきありがとうございました。<br>
@@ -330,8 +382,9 @@
               <small class='e-error' v-show="validation.comment">{{ errorMessage.comment }}</small>
             </div>
 
-            <div class="text-center">
-              <button :disabled="isValid" class="btn btn-primary btn-send" >送信</button>
+
+            <div class="text-center mt-5">
+              <button :disabled="isValid" class="btn btn-outline-primary btn-rounded btn-send" >送信</button>
             </div>
           </form>
         </div>
@@ -340,10 +393,8 @@
       
     </article>
 
-    <footer class="b-footer">
-      <section class="b-footer">
-
-      </section>
+    <footer class="b-footer flex-center">
+        2021@hayashida
 
     </footer> 
 
@@ -362,7 +413,10 @@
 
 
 <script src="public/js/app.js"></script>
+
 <script src="public/js/portfolio.js"></script>
+<script src="public/js/kamihubuki.js"></script>
+
 
 <script>
   $(function () {
@@ -386,7 +440,7 @@
       let href = $(this).attr("href");
       let target = $(href == "#" || href == "" ? 'html' : href);
       console.log('target');
-      let position = target.offset().top + adjust;
+      let position = target.offset().top - adjust;
       $('body,html').animate({ scrollTop: position }, {
         duration: time,
         easing: 'easeOutExpo'// イージングの種類を指定
@@ -395,11 +449,35 @@
     });
 
 
+  $.ajax({
+    url: '/functions/email.php',
+    method: 'post',
+    dataType: 'json',
+    data: {
+      'text': 'text',
+      'content': 'content'
+    }
+  })
+    .done(function (json) {
+    console.log(json.data.text);
+    
+  })
+    .fail(function (xhr, textStatus, errorThrown) {
+    //error
+    //      alert(JSON.stringify(json.res));
+    console.log('error');
+    console.log(xhr);
+    console.log(errorThrown);
+  })
+
   });
+</script>
 
-  
-
-
+<script>
+  AOS.init({
+    animatedClassName: 'aos-animate',
+    easing: 'ease',
+  });
 </script>
 
 </html>

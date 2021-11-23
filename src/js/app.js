@@ -5,6 +5,9 @@ require('bootstrap');
 //jquery
 window.$ = window.jQuery = require('jquery');
 
+//jquery
+window.AOS = require('aos');
+
 //jqueryのアニメ
 require('jquery.easing');
 

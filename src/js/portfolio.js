@@ -1,41 +1,166 @@
 
+const game = {
+  data(){
+    return{
+      table:
+      [
+        [false,false,true,true],
+        [false,false,true,true],
+        [true,false,true,true],
+        [false,false,true,true],
+      ],
+      clear: false,
+    }
+  },
+  created(){
+    // this.shuffle()
+    this.table = 
+    [
+      [false,true,false,true],
+      [true,true,true,true],
+      [false,true,false,true],
+      [true,true,true,true],
+    ]
+  },
+  methods:{
+    boxTurn(rowIndex, colIndex){
+
+      //左上
+      this.checkOutOfRange( rowIndex-1, colIndex-1 )
+      //右上
+      this.checkOutOfRange( rowIndex+1, colIndex-1 )
+      //左下
+      this.checkOutOfRange( rowIndex-1, colIndex+1 )
+      //右下
+      this.checkOutOfRange( rowIndex+1, colIndex+1 )
+
+      this.clear = this.checkAllTrue()
+    },
+
+    checkOutOfRange( rowIndex, colIndex ){
+      const tableLength = this.table[0].length
+      if(rowIndex >= 0 && rowIndex < tableLength){
+        if(colIndex >= 0 && colIndex < tableLength){
+          this.reverseBool( rowIndex, colIndex)
+          return false;
+        }
+      }
+    },
+
+    reverseBool( rowIndex, colIndex){
+      this.table[rowIndex][colIndex] = !this.table[rowIndex][colIndex]
+    },
+
+    checkAllTrue(){
+      //二次元配列を平らに
+      const flat = _.flatten(this.table)
+
+      //全てtrueならクリア
+      return _.indexOf(flat, false) === -1
+    },
+
+    shuffle(){
+      const length = this.table.length
+      for(let r=0; r<length; r++){
+        for(let c=0; c<length; c++){
+          this.table[r][c] = Math.round(Math.random()) ? true : false
+        }
+      }
+
+      //全てtrueならもう一回シャッフル
+      if(this.checkAllTrue()){
+        this.shuffle()
+      }
+      this.clear = false;
+    }
+  }
+
+}
+createApp(game).mount('#vue-top-game')
+
+
+
+
 const workData = 
   [
     {
-      id: 1, title: '飲食アプリ', url: 'haizen_01.jpg',
-      describe: '飲食店向けの注文から配膳、会計までを管理するWebアプリを現在開発中です。スピードが要求される場面が多いと思いますので、Reactへの以降を検討中です。',
-      tool: 'PHP / Laravel 6 / MySQL / jQuery /Git / bootstrap4 ',
+      id: 1,
+      title: '飲食アプリ',
+      files: ['haizen_01.jpg','haizen-figma.jpg', 'haizen-er.jpg'],
+      describe: '飲食店向けの注文から配膳、会計までを管理するWebアプリです。現在開発中。DB設計、UI設計など実務を想定しながら開発を進めています。',
+      tool: 'PHP, Laravel 6, MySQL, jQuery, Git, bootstrap4, figma, draw.io',
+      git: 'https://github.com/lafrin/haizen',
+      url: 'https://kokoiine.weblike.jp/haizen'
     },
     {
-      id: 2, title: 'kokoiine', url: 'kokoiine_02.jpg', tool: ''
+      id: 2, 
+      title: 'Hayashida\'s Portfolio', 
+      files: ['portfolio-01.jpg','portfolio-02.jpg'],
+      describe: 'このポートフォリオサイトです。一部にVueを使用しています。',
+      tool: 'HTML, SCSS(BEM), JavaScript, Vue, chart.js',
+      git: '',
+      url: ''
     },
     {
-      id: 3, title: '本サイト', url: 'haizen_01.jpg', tool: ''
+      id: 3, 
+      title: 'kokoiine!', 
+      files: ['kokoiine_01.jpg','kokoiine_02.jpg'],
+      describe: '日本中のいいね（オススメポイント）だけを集める投稿型のマップです。観光地などを探すときに、オススメだけが表示されたら便利だなと思い制作しました。\nログインやメールはPHPで1から実装しています。ファイルを分けて整理することの重要性を学びました。',
+      tool: 'PHP, MySQL, jQuery, GoogleMapApi ',
+      git: '',
+      url: 'https://kokoiine.weblike.jp/kokoiine/'
+    },
+
+    // {
+    //   id: 4, 
+    //   title: 'javaアプリ', 
+    //   files: ['java_list.jpg'],
+    //   describe: 'サーブレットを使用したファイルブラウザを作成しました。',
+    //   tool: 'java1.8',
+    //   git: '',
+    //   url: ''
+    // },
+    {
+      id: 5, 
+      title: 'スマホゲーム', 
+      files: ['minigame-01.jpg','minigame-02.jpg','minigame-03.jpg','minigame-04.jpg','minigame-05.jpg',　'minigame-06.jpg',],
+      describe: '訓練校に通いながら開発した子供向けミニゲーム集のAndroidアプリです。『子供も大人も簡単に楽しめる』をコンセプトにしています。Androidライフサイクルを理解するのに時間がかかりました。\n\nゲームをクリアしてコインを集めると、お庭の電気ネズミにおやつを買って与えることができます。イラストはほぼ自前です。全体を通してプログラミングの楽しさを再確認できました。',
+      tool: 'Android Studio 3',
+      git: '',
+      url: ''
     },
     {
-      id: 4, title: 'javaアプリ', url: 'java_list.jpg', tool: ''
+      id: 6, 
+      title: 'Web CM', 
+      files: ['cm-01.jpg', 'cm-02.jpg', 'cm-03.jpg'],
+      describe: 'Youtubeの広告を作成しました。クライアントと話し合い、前半は難しく、後半にスッキリという流れで作っています。実際にお問い合わせが増えたようで、クライアントからは高評価を頂いております。',
+      tool: 'AE6',
+      git: '',
+      url: 'https://www.youtube.com/watch?v=ecKd-cDc8IU'
     },
-    {
-      id: 5, title: 'スマホゲーム', url: 'haizen_01.jpg', tool: ''
-    },
-    {
-      id: 6, title: 'Web CM', url: 'top-kensetu.jpg', tool: ''
-    },
-    {
-      id: 7, title: 'イラスト', url: 'top-kensetu.jpg', tool: ''
-    },
+    // {
+    //   id: 7, 
+    //   title: 'イラスト', 
+    //   files: ['kokoiine_01.jpg','kokoiine_02.jpg'],
+    //   describe: '',
+    //   tool: 'phtooshop, sai',
+    //   git: '',
+    //   url: ''
+    // },
   ];
 
 const work = createApp({
   data() {
     return {
-      showModal: true,
+      showModal: false,
       works: workData,
       title: 'titlaae',
       describe: '',
       tool: '',
-      image: '',
-      thumbnail: [],
+      image: 'haizen_01.jpg',
+      files: ['kokoiine_01.jpg','kokoiine_02.jpg'],
+      git: '',
+      url: '',
     }
   },
   created() {
@@ -43,19 +168,34 @@ const work = createApp({
     this.title = selectWork.title
     this.describe = selectWork.describe
     this.tool = selectWork.tool
-    this.image = selectWork.image
-    this.thumbnail = selectWork.thumbnail
+    this.image = selectWork.files[0]
+    this.files = selectWork.files
+    this.git = selectWork.git
+    this.url = selectWork.url
+  },
+  computed:{
+    
   },
   methods:{
     showWorkModal(id){
       this.showModal = true
-      // const modal = document.getElementById('work-modal');
-      // modal.classList.add('show')
-      const selectWork = _.find(this.works,{id:id})
+
+      const selectWork = _.find(this.works,{id: id})
       this.title = selectWork.title
-      // mainImage.style.backgroundImage= "url(/public/img/work/"+ selectWork.url +")"
-      // console.log( "url(/public/img/work/"+ selectWork.url +")" )
-      console.log(selectWork )
+      this.describe = selectWork.describe
+      this.tool = selectWork.tool
+      this.image = selectWork.files[0]
+      this.files = selectWork.files
+      this.git = selectWork.git
+      this.url = selectWork.url
+      // this.thumbnail = selectWork.thumbnail
+    },
+    clickThumbnail(e){
+      this.image = e.currentTarget.dataset.img
+      console.log(this.image)
+    },
+    clickHideBG(){
+      this.shoModal = false
     }
   }
 })
@@ -67,26 +207,7 @@ work.component("modal", {
 work.mount('#vue-work-box')
 
 
-
-// const app = createApp({
-//   data() {
-//     return {
-//       showModal: false,
-//       works: workData,
-//       title: 'titlaae',
-//       describe: '',
-//       tool: '',
-//       image: '',
-//       thumbnail: [],
-//     }
-//   }
-// })
-
-// app.component("modal", {
-//   template: "#modal-template",
-// })
-
-// app.mount('#app')
+//////////////////////////////
 
 
 
@@ -94,9 +215,9 @@ const Skill = {
   data() {
     return {
       skills: [
-        {id: 1, title: 'chartLang'},
-        {id: 2, title: 'chartPp'},
-        {id: 3, title: 'chartOo'},
+        {id: 1, title: 'chartFront'},
+        {id: 2, title: 'chartBack'},
+        {id: 3, title: 'chartEtc'},
       ]
     }
   },
@@ -104,117 +225,20 @@ const Skill = {
 createApp(Skill).mount('#vue-skill-box')
 
 
-//////////////////////////////////////////////
-
-let historyData = 
-[
-  {
-    year: 1986, 
-    title: '誕生', 
-    comment: '5人兄弟の末っ子として自宅で生を受ける。\n兄弟の荒波に揉まれて育つ。',
-    image: 'baby.png',
-    isClose: true
-  },
-  {
-    year: 1998, 
-    title: 'アニメやゲームが大好き学生', 
-    comment: '幼稚園からゲームに目覚め、将来の夢はテレビゲームを作る事！\n高校の授業でcobolを習うも訳が分からず挫折。',
-    image: 'pg-stady.png',
-    isClose: true
-  },
-  {
-    year: 2006, 
-    title: '何となくで決めた就職先…', 
-    comment: '上司とうまくコミュニケーションが取れずに退職。\n人との接し方について考えるようになる。',
-    image: 'zasetsu.png',
-    isClose: false
-  },
-  {
-    year: 2007, 
-    title: '本当にやりたいこと - いざ東京へ', 
-    comment: '本気でデザインを学ぶため、覚悟を決めて単身で上京。新聞配達をしながら必死に学ぶ。',
-    image: 'shinbun-stady.png',
-    isClose: false
-  },
-  {
-    year: 2009, 
-    title: '念願のゲームデザイナーになる', 
-    comment: '3DCGデザイナーとして就職。最大目標だった「有名タイトルの業務に関わりたい」を某ドラゴンRPGで達成。\n業務でスクリプトを書くうちにプログラミングが好きになり、心機一転プログラマーを目指すことを決意！',
-    image: 'mokuhyo2.png',
-    isClose: true
-  },
-  {
-    year: 2017, 
-    title: 'エラーと戦う日々', 
-    comment: '独学するもエラーと格闘し、思うようにいかない日々。\nタイミングよく職業訓練校が見つかり、Javaを学びつつ、Androidのミニゲームアプリを作成。',
-    image: 'pg-down.png',
-    isClose: true
-  },
-  {
-    year: 2018, 
-    title: 'そしてプログラマーへ', 
-    comment: '小さい会社に就職が決まり輝かしい未来を思い描くも、教育担当の上司がすぐに辞めてしまい、Android担当が自分一人という状況になる。\n引き継いだアプリを何とかリリースするも心身ともに疲弊する。',
-    image: 'smartphone.png',
-    isClose: true
-  },
-  {
-    year: 2018, 
-    title: '旅に出た', 
-    comment: '退職2週間前に、高校の時から自転車で旅をしたかったことをふと思い出して実行。約1年かけて日本一周を達成。\n様々な人と話し、笑い、喜び、助けて貰う。',
-    image: 'japan.png',
-    isClose: true
-  },
-  {
-    year: 2019, 
-    title: '妻を迎える', 
-    comment: '日本一周後すぐに結婚。新婚旅行に出発するもコロナウィルス蔓延で途中帰還する。\nなんやかんやでプログラミングは好きだったので、Web言語について学び始める。webアプリ【kokoiine】を開発。',
-    image: 'wedding.png',
-    isClose: false
-  },
-  {
-    year: 2021, 
-    title: 'プログラマー再び', 
-    comment: '派遣でWeb系の会社に出向し、プログラミングにどっぷり浸かる。',
-    image: 'pg-job.png',
-    isClose: true
-  }
-];
-
-let History = {
-  data() {
-    return {
-      histories: historyData,
-      show: 'abc'
-    }
-  }
-  ,
-  methods: {
-    historyClose(){
-      this.histories.forEach(element => {
-        element.isClose = false;
-      });
-      // alert(this.histories);
-    }
-  }
-}
-createApp(History).mount('#vue-history-box')
-
-
-
 // import { createApp } from '@vue/runtime-dom'
 ////////////////////////////////////////////
 import Chart from 'chart.js/auto';
-let ctx = document.getElementById('chartLang');
+let ctx = document.getElementById('chartFront');
 let chartTitle = "フロントエンド";
-let labels = ['HTML/CSS', 'JS', 'jQuery', 'Vue', 'WP',];
-const chart1 = makeChart(ctx, chartTitle, labels, [3,2,3,1,2]);
+let labels = ['HTML/CSS', 'SCSS', 'JS', 'jQuery', 'Vue', 'WP',];
+const chart1 = makeChart(ctx, chartTitle, labels, [3,1,2,3,1,2]);
 
-ctx = document.getElementById('chartPp');
+ctx = document.getElementById('chartBack');
 chartTitle = "バックエンド";
-labels = ['PHP', 'Laravel', 'MySQL', ];
-const chart2 = makeChart(ctx, chartTitle, labels, [3,3,3]);
+labels = ['PHP', 'Laravel', 'Ruby', 'MySQL', ];
+const chart2 = makeChart(ctx, chartTitle, labels, [3,2,1,3]);
 
-ctx = document.getElementById('chartOo');
+ctx = document.getElementById('chartEtc');
 chartTitle = "etc";
 labels = ['Windows', 'Mac', 'Linax', 'Git', 'docker', 'AWS'];
 const chart3 = makeChart(ctx, chartTitle, labels, [3,2,2,3,1,1]);
@@ -270,7 +294,7 @@ function makeChart(ctx, title, labels, values){
               // max: 5,
           },
           x:{
-            max: 5,
+            max: 4,
           }
       },
       
@@ -279,6 +303,101 @@ function makeChart(ctx, title, labels, values){
 
   return myChart;
 }
+//////////////////////////////////////////////
+
+let historyData = 
+[
+  {
+    year: 1986, 
+    title: '誕生', 
+    comment: '5人兄弟の末っ子として自宅で生を受ける。\n兄弟の荒波に揉まれて育つ。',
+    image: 'baby.png',
+    isClose: true
+  },
+  {
+    year: 1998, 
+    title: 'アニメやゲームが大好き学生', 
+    comment: '幼稚園からゲームに目覚め、将来の夢はテレビゲームを作る事！\n高校の授業でcobolを習うも訳が分からず挫折。',
+    image: 'pg-stady.png',
+    isClose: true
+  },
+  {
+    year: 2006, 
+    title: '何となくで決めた就職先…', 
+    comment: '上司とうまくコミュニケーションが取れずに退職。\n人との接し方について考えるようになる。',
+    image: 'zasetsu.png',
+    isClose: false
+  },
+  {
+    year: 2007, 
+    title: '本当にやりたいこと - いざ東京へ', 
+    comment: '本気でデザインを学ぶため、覚悟を決めて単身で上京。新聞配達をしながら必死に学ぶ。',
+    image: 'shinbun-stady.png',
+    isClose: false
+  },
+  {
+    year: 2009, 
+    title: '念願のゲームデザイナーになる', 
+    comment: '3DCGデザイナーとして就職。最大目標だった「有名タイトルの業務に関わりたい」を某ドラゴンRPGで達成。\n業務でスクリプトを書くうちにプログラミングが好きになり、心機一転プログラマーを目指すことを決意！',
+    image: 'mokuhyo2.png',
+    isClose: true
+  },
+  {
+    year: 2017, 
+    title: 'エラーと戦う日々', 
+    comment: '独学するもエラーと格闘し、思うようにいかない日々。\nタイミングよく職業訓練校が見つかり、Javaを学びつつ、Androidのミニゲームアプリを作成。',
+    image: 'pg-down.png',
+    isClose: true
+  },
+  {
+    year: 2018, 
+    title: 'そしてプログラマーへ', 
+    comment: '小さい会社に就職が決まり輝かしい未来を思い描くも、教育担当の方がすぐに辞めてしまい、Android担当が自分一人という状況になる。\n引き継いだアプリを何とかリリースするも心身ともに疲弊する。',
+    image: 'smartphone.png',
+    isClose: true
+  },
+  {
+    year: 2018, 
+    title: '旅に出た', 
+    comment: '退職2週間前に、高校の時から自転車で旅をしたかったことをふと思い出して実行。約1年かけて日本一周を達成。\n様々な人と話し、笑い、喜び、助けて貰う。',
+    image: 'japan.png',
+    isClose: true
+  },
+  {
+    year: 2019, 
+    title: '妻を迎える', 
+    comment: '日本一周後すぐに結婚。新婚旅行に出発するもコロナウィルス蔓延で途中帰還する。\nなんやかんやでプログラミングは好きだったので、Web言語について学び始める。webアプリ【kokoiine】を開発。',
+    image: 'wedding.png',
+    isClose: false
+  },
+  {
+    year: 2021, 
+    title: 'プログラマー再び', 
+    comment: '派遣でWeb系の会社に出向し、プログラミングにどっぷり浸かる。',
+    image: 'pg-job.png',
+    isClose: true
+  }
+];
+
+let History = {
+  data() {
+    return {
+      histories: historyData,
+      show: ''
+    }
+  }
+  ,
+  methods: {
+    historyClose(){
+      this.histories.forEach(element => {
+        element.isClose = false;
+      });
+      // alert(this.histories);
+    }
+  }
+}
+createApp(History).mount('#vue-history-box')
+
 
 
 
@@ -323,24 +442,38 @@ let Form = {
       if(form.name && form.email && form.comment){
         // alert('all ok')
 
-        // const data = new FormData();
-        const data = new URLSearchParams();
+        let data = new FormData();
         data.append('name',form.name)
         data.append('email', form.email)
         data.append('comment', form.comment)
         const config = {
           headers: {
-              'Access-Control-Allow-Origin': '*',
-              'content-type': 'multipart/form-data'
+              'content-type': 'application/x-www-form-urlencoded'
           }
-      }
-        axios.post('/functions/email.php', data, config)
-        .then(function(response){
-          console.log(response)
-        })
-        .catch(function(error){
-          console.log(error) 
-        })
+        }
+
+        console.log(data.get('name'))
+
+        // axios.post('/functions/email.php', {
+        //   title: 'abc',
+        //   content: 'ccccccc'
+        // })
+        // .then(function(response){
+        //   console.log(response)
+        // })
+        // .catch(function(error){
+        //   console.log(error) 
+        // })
+
+        let params = new URLSearchParams();
+        params.append('text', 'テストだよーうほうほ');
+        axios.post('/functions/email.php', params, config)
+          .then(response => {
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error);
+          });
       }else{
         alert('no')
       }

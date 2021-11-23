@@ -3,6 +3,7 @@ let mix = require('laravel-mix');
 
 mix.js('src/js/app.js', 'js')
   .js('src/js/portfolio.js', 'js')
+  .js('src/js/kamihubuki.js', 'js')
   .setPublicPath('public');
 
 // mix.js([
@@ -13,6 +14,7 @@ mix.js('src/js/app.js', 'js')
 
 mix.sass('src/scss/app.scss', 'css')
 .sass('src/scss/style.scss', 'css')
+.sass('src/scss/kamihubuki.scss', 'css')
 .setPublicPath('public');
 
 // mix.styles([
