@@ -363,9 +363,7 @@ ul {
   width: 150px;
   height: 150px;
   margin: auto;
-  background-image: url("/public/img/my-image.jpg");
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-image: url("../img/my-image.jpg");
   background-size: cover;
   border-radius: 100px;
   background-repeat: no-repeat;

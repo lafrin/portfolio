@@ -15,6 +15,7 @@ mix.js('src/js/app.js', 'js')
 mix.sass('src/scss/app.scss', 'css')
 .sass('src/scss/style.scss', 'css')
 .sass('src/scss/kamihubuki.scss', 'css')
+.options({processCssUrls: false})
 .setPublicPath('public');
 
 // mix.styles([

@@ -369,6 +369,8 @@ $top-title-width: 30rem;
     left: 50%;
     transform: translate(-50%, -50%);
 
+    $img-path: "../public/img/";
+
     > .b-profile-box {
       position: relative;
       margin: 1rem 0;
@@ -377,8 +379,7 @@ $top-title-width: 30rem;
         width: 150px;
         height: 150px;
         margin: auto;
-        background-image: url("/public/img/my-image.jpg");
-        object-fit: cover;
+        background-image: url("../img/my-image.jpg");
         background-size: cover;
         border-radius: 100px;
         background-repeat: no-repeat;

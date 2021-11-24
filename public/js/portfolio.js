@@ -15682,7 +15682,7 @@ var workData = [{
 //   id: 4, 
 //   title: 'javaアプリ', 
 //   files: ['java_list.jpg'],
-//   describe: 'サーブレットを使用したファイルブラウザを作成しました。',
+//   describe: 'サーブレットssを使用したファイルブラウザを作成しました。',
 //   tool: 'java1.8',
 //   git: '',
 //   url: ''
