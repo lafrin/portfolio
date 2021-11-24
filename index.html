@@ -364,21 +364,21 @@
         ご感想などありましたら下記よりお送りください。</div>
         
         <div id="vue-mail-form">
-          <form @submit.prevent="sendMail" class="mt-5 mx-4 b-form" method="post" action="/">
+          <form id="mail-form" @submit.prevent="sendMail" class="mt-5 mx-4 b-form" method="post" action="/">
             <div class="mb-3">
               <label for="form-name">お名前<span class="check-cercle mx-2" :class="{'is-checked': !validation.name}"></span></label>
               <input v-model="form.name" type="text" class="col-12 form-control" id="form-name">
-              <small class='e-error' v-show="validation.name">{{ errorMessage.name }}</small>
+              <!-- <small class='e-error' v-show="validation.name">{{ errorMessage.name }}</small> -->
             </div>
             <div class="mb-3" style="position:relative">
               <label for="form-email">メールアドレス<span class="check-cercle mx-2" :class="{'is-checked': !validation.email}"></span></label>
               <input v-model="form.email" type="email" class="col-12 form-control" id="form-email" placeholder="name@example.com">
-              <small class='e-error' v-show="validation.email">{{ errorMessage.email }}</small>
+              <!-- <small class='e-error' v-show="validation.email">{{ errorMessage.email }}</small> -->
             </div>
             <div class="mb-3">
               <label for="form-comment">コメント<span class="check-cercle mx-2" :class="{'is-checked': !validation.comment}"></span></label>
               <textarea v-model="form.comment" class="col-12  form-control" name="contact" id="form-comment"  rows="5"></textarea>
-              <small class='e-error' v-show="validation.comment">{{ errorMessage.comment }}</small>
+              <!-- <small class='e-error' v-show="validation.comment">{{ errorMessage.comment }}</small> -->
             </div>
 
 
@@ -430,7 +430,13 @@
       }
     })
 
-
+    document.getElementById('mail-form').onkeypress = (e) => {
+      const key = e.keyCode || e.charCode || 0;
+      if(key == 13){//13はenter
+        // アクションを行わない
+        e.preventDefault();
+      }
+    }
 
     //画像クリックでアンカーへ移動
     $('.anchor').on('click', function () {

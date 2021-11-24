@@ -15759,7 +15759,6 @@ var work = createApp({
     },
     clickThumbnail: function clickThumbnail(e) {
       this.image = e.currentTarget.dataset.img;
-      console.log(this.image);
     },
     clickHideBG: function clickHideBG() {
       this.shoModal = false;
@@ -15970,7 +15969,6 @@ var Form = {
       var form = this.form;
 
       if (form.name && form.email && form.comment) {
-        // alert('all ok')
         var data = new FormData();
         data.append('name', form.name);
         data.append('email', form.email);
@@ -15980,52 +15978,21 @@ var Form = {
             'content-type': 'application/x-www-form-urlencoded'
           }
         };
-        console.log(data.get('name'));
         axios__WEBPACK_IMPORTED_MODULE_1___default().post('functions/email.php', data).then(function (response) {
           console.log(response);
           confirm('送信しました');
         })["catch"](function (error) {
           console.log(error);
-        }); // let params = new URLSearchParams();
-        // params.append('text', 'テストだよーうほうほ');
-        // axios.post('functions/email.php', params, config)
-        //   .then(response => {
-        //     console.log(response.data);
-        //   })
-        //   .catch(error => {
-        //     console.log(error.response);
-        //   });
+        });
       } else {
-        alert('no');
+        alert('入力されていない項目があります。');
       }
 
       return true;
     }
   }
 };
-createApp(Form).mount('#vue-mail-form'); // const app = createApp
-// app.component('todo-item',{
-//   template: `<p>テンプレート</p>`
-// })
-// createApp(EventFor).mount('#v-work-box')
-// app.mount('#eventfor')
-// const TodoList = {
-//   data() {
-//     return {
-//       groceryList: [
-//         { id: 0, text: 'Vegetables' },
-//         { id: 1, text: 'Cheese' },
-//         { id: 2, text: 'Whatever else humans are supposed to eat' }
-//       ]
-//     }
-//   }
-// }
-// const app2 = createApp(TodoList)
-// app2.component('todo-item', {
-//   props: ['todo'],
-//   template: `<li>{{ todo.text }}</li>`
-// })
-// app2.mount('#todo-list-app')
+createApp(Form).mount('#vue-mail-form');
 })();
 
 /******/ })()
