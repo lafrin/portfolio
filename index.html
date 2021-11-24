@@ -448,26 +448,27 @@
     });
 
 
-  $.ajax({
-    url: '/functions/email.php',
-    method: 'post',
-    dataType: 'json',
-    data: {
-      'text': 'text',
-      'content': 'content'
-    }
-  })
-    .done(function (json) {
-    console.log(json.data.text);
+
+  // $.ajax({
+  //   url: '/functions/email.php',
+  //   method: 'post',
+  //   dataType: 'json',
+  //   data: {
+  //     'text': 'text',
+  //     'content': 'content'
+  //   }
+  // })
+  //   .done(function (json) {
+  //   console.log(json.data.text);
     
-  })
-    .fail(function (xhr, textStatus, errorThrown) {
-    //error
-    //      alert(JSON.stringify(json.res));
-    console.log('error');
-    console.log(xhr);
-    console.log(errorThrown);
-  })
+  // })
+  //   .fail(function (xhr, textStatus, errorThrown) {
+  //   //error
+  //   //      alert(JSON.stringify(json.res));
+  //   console.log('error');
+  //   console.log(xhr);
+  //   console.log(errorThrown);
+  // })
 
   });
 </script>

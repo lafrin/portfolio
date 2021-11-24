@@ -15977,24 +15977,21 @@ var Form = {
             'content-type': 'application/x-www-form-urlencoded'
           }
         };
-        console.log(data.get('name')); // axios.post('/functions/email.php', {
-        //   title: 'abc',
-        //   content: 'ccccccc'
-        // })
-        // .then(function(response){
-        //   console.log(response)
-        // })
-        // .catch(function(error){
-        //   console.log(error) 
-        // })
-
-        var params = new URLSearchParams();
-        params.append('text', 'テストだよーうほうほ');
-        axios__WEBPACK_IMPORTED_MODULE_1___default().post('/functions/email.php', params, config).then(function (response) {
+        console.log(data.get('name'));
+        axios__WEBPACK_IMPORTED_MODULE_1___default().post('functions/email.php', data).then(function (response) {
           console.log(response);
+          confirm('送信しました');
         })["catch"](function (error) {
           console.log(error);
-        });
+        }); // let params = new URLSearchParams();
+        // params.append('text', 'テストだよーうほうほ');
+        // axios.post('functions/email.php', params, config)
+        //   .then(response => {
+        //     console.log(response.data);
+        //   })
+        //   .catch(error => {
+        //     console.log(error.response);
+        //   });
       } else {
         alert('no');
       }
