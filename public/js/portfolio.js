@@ -15877,7 +15877,7 @@ var historyData = [{
 }, {
   year: 2009,
   title: '念願のゲームデザイナーになる',
-  comment: '3DCGデザイナーとして就職。最大目標だった「有名タイトルの業務に関わりたい」を某ドラゴンRPGで達成。\n業務でスクリプトを書くうちにプログラミングが好きになり、心機一転プログラマーを目指すことを決意！',
+  comment: '3DCGデザイナーとして就職。7年目で最大目標だった「有名タイトルの業務に関わりたい」を某ドラゴンRPGで達成。\n業務でスクリプトを書くうちにプログラミングが好きになり、心機一転プログラマーを目指すことを決意！',
   image: 'mokuhyo2.png',
   isClose: true
 }, {
@@ -15934,9 +15934,12 @@ var Form = {
   data: function data() {
     return {
       form: {
-        name: 'ppop',
-        email: 'riris.lafih.music@gmail.com',
-        comment: 'テスト送信'
+        name: '',
+        email: '',
+        comment: '' // name: 'ppop',
+        // email: 'riris.lafih.music@gmail.com',
+        // comment: 'テスト送信',
+
       },
       errorMessage: {
         name: '名前を入れてください',

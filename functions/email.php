@@ -9,7 +9,7 @@ header("Content-Type:text/html; charset=UTF-8");
 mb_language("japanese");
 mb_internal_encoding("utf-8");
 
-$sub1 = $name. "ポートフォリオからの送信";
+$sub1 = $name. "様からの送信【ポートフォリオ】";
 $mail_to = 'riris.lafih.lovecat@gmail.com';
 // $mail_to = 'portfolio@kokoiine.weblike.jp';
 
