@@ -192,7 +192,6 @@ const work = createApp({
     },
     clickThumbnail(e){
       this.image = e.currentTarget.dataset.img
-      console.log(this.image)
     },
     clickHideBG(){
       this.shoModal = false
@@ -443,7 +442,6 @@ let Form = {
     sendMail(){
       const form = this.form
       if(form.name && form.email && form.comment){
-        // alert('all ok')
 
         let data = new FormData();
         data.append('name',form.name)
@@ -455,7 +453,6 @@ let Form = {
           }
         }
 
-        console.log(data.get('name'))
 
         axios.post('functions/email.php', data)
         .then(function(response){
@@ -466,17 +463,8 @@ let Form = {
           console.log(error) 
         })
 
-        // let params = new URLSearchParams();
-        // params.append('text', 'テストだよーうほうほ');
-        // axios.post('functions/email.php', params, config)
-        //   .then(response => {
-        //     console.log(response.data);
-        //   })
-        //   .catch(error => {
-        //     console.log(error.response);
-        //   });
       }else{
-        alert('no')
+        alert('入力されていない項目があります。')
       }
        
 
@@ -486,37 +474,4 @@ let Form = {
 }
 
 createApp(Form).mount('#vue-mail-form')
-
-// const app = createApp
-// app.component('todo-item',{
-//   template: `<p>テンプレート</p>`
-// })
-
-// createApp(EventFor).mount('#v-work-box')
-// app.mount('#eventfor')
-
-
-
-
-
-// const TodoList = {
-//   data() {
-//     return {
-//       groceryList: [
-//         { id: 0, text: 'Vegetables' },
-//         { id: 1, text: 'Cheese' },
-//         { id: 2, text: 'Whatever else humans are supposed to eat' }
-//       ]
-//     }
-//   }
-// }
-
-// const app2 = createApp(TodoList)
-
-// app2.component('todo-item', {
-//   props: ['todo'],
-//   template: `<li>{{ todo.text }}</li>`
-// })
-
-// app2.mount('#todo-list-app')
 
