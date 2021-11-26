@@ -613,6 +613,11 @@ $top-title-width: 30rem;
     }
   }
 }
+@media screen and (max-width: 576px) {
+  .b-work-modal-box {
+    overflow-y: scroll;
+  }
+}
 .b-work-card {
   filter: drop-shadow(1px 1px 4px rgba(43, 55, 55, 0.3));
   position: relative;
