@@ -54,7 +54,7 @@ h2 {
   font-weight: bold;
   margin-bottom: 0;
   line-height: 4rem;
-  padding: 0 3rem 0 2rem;
+  padding: 0 2rem 0 2rem;
   border-bottom: $dash-size dashed $dashed;
   display: inline-block;
 }
@@ -197,7 +197,7 @@ $top-title-width: 30rem;
     border-radius: 20px 5px 20px 5px;
     &.m-bg {
       // transform: translate(-1%, 0%);
-      transform: translate(-51%, -50%);
+      transform: translate(-50%, -50%);
       background: #fff259;
       filter: drop-shadow(1px 1px 4px rgba(43, 55, 55, 0.3));
     }
@@ -383,10 +383,10 @@ $top-title-width: 30rem;
   > section {
     max-width: 1200px;
     z-index: 11;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
 
     $img-path: "../public/img/";
 

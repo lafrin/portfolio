@@ -14,13 +14,13 @@ const game = {
   },
   created(){
     // this.shuffle()
-    this.table = 
-    [
-      [false,true,false,true],
-      [true,true,true,true],
-      [false,true,false,true],
-      [true,true,true,true],
-    ]
+    // this.table = 
+    // [
+    //   [false,true,false,true],
+    //   [true,true,true,true],
+    //   [false,true,false,true],
+    //   [true,true,true,true],
+    // ]
   },
   methods:{
     boxTurn(rowIndex, colIndex){
