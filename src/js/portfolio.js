@@ -9,22 +9,27 @@ const game = {
         [true,false,true,true],
         [false,false,true,true],
       ],
-      clear: false,
+      isClear: false,
+      timer: 0,
+      isTimer: false,
     }
   },
   created(){
     // this.shuffle()
-    this.table = 
-    [
-      [false,true,false,true],
-      [true,true,true,true],
-      [false,true,false,true],
-      [true,true,true,true],
-    ]
+    // this.table = 
+    // [
+    //   [false,true,false,true],
+    //   [true,true,true,true],
+    //   [false,true,false,true],
+    //   [true,true,true,true],
+    // ]
   },
   methods:{
     boxTurn(rowIndex, colIndex){
-
+      if( this.timer == 0 ){
+        this.countUpTimer()
+      }
+      
       //左上
       this.checkOutOfRange( rowIndex-1, colIndex-1 )
       //右上
@@ -34,9 +39,12 @@ const game = {
       //右下
       this.checkOutOfRange( rowIndex+1, colIndex+1 )
 
-      this.clear = this.checkAllTrue()
+      this.isClear = this.checkAllTrue()
+
+      
     },
 
+    //反転対象が枠内外のチェック
     checkOutOfRange( rowIndex, colIndex ){
       const tableLength = this.table[0].length
       if(rowIndex >= 0 && rowIndex < tableLength){
@@ -67,11 +75,22 @@ const game = {
         }
       }
 
-      //全てtrueならもう一回シャッフル
+      //全てtrueならもう一度シャッフル
       if(this.checkAllTrue()){
         this.shuffle()
       }
-      this.clear = false;
+      this.isClear = false
+      this.timer = 0
+    },
+
+    countUpTimer(){
+      if(!this.isClear){
+        setTimeout(() => {
+          if(this.isClear)return
+          this.timer += 1
+          this.countUpTimer()
+        }, 1000)
+      }
     }
   }
 

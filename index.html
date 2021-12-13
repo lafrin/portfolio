@@ -17,7 +17,7 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light mx-4 mt-2 px-3">
+    <nav class="navbar navbar-expand-lg navbar-light mt-2 px-3">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -92,13 +92,14 @@
       <div id="vue-top-game" class="b-game-box conteiner">
 
         <div class="e-text">
+          <div>まずは制作したゲームで遊びましょう！</div>
           <div>ブロックをタップすると角のブロックが反転します。</div>
-          <div>全て赤色にしてみましょう。</div>
+          <div>全て赤色に変えてみてください。</div>
         </div>
 
         <div class="e-table-box px-4 mt-2">
-          <div class="confetti" :class="{'m-show': clear}"></div>
-          <h4 class="e-congratulations px-3" :class="{'m-show': clear}">Congratulations !</h4>
+          <div class="confetti" :class="{'m-show': isClear}"></div>
+          <h4 class="e-congratulations px-3" :class="{'m-show': isClear}">Congratulations !</h4>
           <table class="e-game-table mx-auto mt-2"> 
             <tbody>
               <tr v-for="(row, rowIndex) in table" :key=row.rowIndex>
@@ -112,7 +113,8 @@
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-outline-primary btn-rounded mt-5" @click="shuffle()">shuffle</button>
+          <div class="e-timer mt-3">Time: {{ timer }} sec</div>
+          <button class="btn btn-outline-primary btn-rounded mt-3" @click="shuffle()">shuffle</button>
           <a href="#about-me" :class="{'m-show': clear}" class="anchor b-top-down-arrow flex-center mt-5"><i class="down-icon bi bi-arrow-down-square"></i></a>
 
         </div>
@@ -129,7 +131,7 @@
     <!-- -------- -->
     <!-- about me -->
     <!-- -------- -->
-    <article id="about-me" class="b-about-me">
+    <article id="about-me" class="b-about-me flex-center my-5">
       <!-- <div class="e-bg m-white"></div> -->
       <!-- <div class="e-bg m-zigzag"></div> -->
       <section>
@@ -209,10 +211,10 @@
 
     <!-- 一覧 -->
     <div id="vue-work-box">
-      <article id="work" class="b-work-article flex-center ">
+      <article id="work" class="b-work-article flex-center">
         <!-- <div class="e-bg m-white"></div> -->
         <div class="e-bg m-zigzag"></div>
-        <section class="b-work-container">
+        <section class="b-work-container my-5">
           <h2>制作実績</h2>
           <div class="container b-image-box">
               <div class="b-down-arrow m-left"></div>
@@ -408,9 +410,9 @@
 
 
 
-<!-- <script src="public/js/all.js"></script> -->
-<script src="public/js/app.js"></script>
-<script src="public/js/portfolio.js"></script>
+<script src="public/js/all.js"></script>
+<!-- <script src="public/js/app.js"></script> -->
+<!-- <script src="public/js/portfolio.js"></script> -->
 <script src="public/js/kamihubuki.js"></script>
 
 
@@ -452,13 +454,12 @@
 
 
   });
-</script>
 
-<script>
   AOS.init({
     animatedClassName: 'aos-animate',
     easing: 'ease',
   });
 </script>
+
 
 </html>
