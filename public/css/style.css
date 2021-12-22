@@ -54,9 +54,12 @@ body {
 
   .navbar-collapse {
     background: #ffed4a;
-    padding-left: 2rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     border-radius: 10px 50px 10px 50px;
+  }
+
+  .nav-item {
+    border: none;
   }
 }
 .navbar-brand {
@@ -464,12 +467,13 @@ ul {
 }
 .b-about-me > section > .b-profile-box .e-img {
   width: 100%;
+  max-width: 150px;
   height: 100%;
   margin: auto;
   aspect-ratio: 1;
   background-image: url("../img/my-image.jpg");
   background-size: cover;
-  border-radius: 100px;
+  border-radius: 200px;
   background-repeat: no-repeat;
 }
 .b-about-me > section .b-links-box {
@@ -498,6 +502,11 @@ ul {
   text-decoration: none;
 }
 
+@media screen and (max-width: 576px) {
+  .e-description {
+    margin-top: 1rem;
+  }
+}
 .b-work-article {
   position: relative;
   z-index: 1;
@@ -632,6 +641,9 @@ ul {
 @media screen and (max-width: 576px) {
   .b-work-modal-box {
     overflow-y: scroll;
+  }
+  .b-work-modal-box .e-image-box {
+    margin-top: 1rem;
   }
 }
 .b-work-card {

@@ -39,9 +39,11 @@ body {
   }
   .navbar-collapse {
     background: $yellow;
-    padding-left: 2rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     border-radius: 10px 50px 10px 50px;
+  }
+  .nav-item{
+    border: none;
   }
 }
 
@@ -488,12 +490,13 @@ $top-title-width: 30rem;
       // border-left: $dash-size dashed $dashed;
       .e-img {
         width: 100%;
+        max-width: 150px;
         height: 100%;
         margin: auto;
         aspect-ratio: 1;
         background-image: url("../img/my-image.jpg");
         background-size: cover;
-        border-radius: 100px;
+        border-radius: 200px;
         background-repeat: no-repeat;
       }
     }
@@ -527,6 +530,12 @@ $top-title-width: 30rem;
     }
 
 
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .e-description {
+    margin-top: 1rem;
   }
 }
 
@@ -669,7 +678,7 @@ $top-title-width: 30rem;
       // white-space: pre;
       // word-break: break-all;
     }
-    
+
     > .e-tool-box {
       > .e-tool-title {
         display: inline;
@@ -722,6 +731,9 @@ $top-title-width: 30rem;
 @media screen and (max-width: 576px) {
   .b-work-modal-box {
     overflow-y: scroll;
+    .e-image-box{
+      margin-top: 1rem;
+    }
   }
 }
 .b-work-card {
