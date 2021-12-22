@@ -79,7 +79,7 @@
     <!-- game     -->
     <!-- -------- -->
     <article id="game" class="b-game-conteiner flex-center">
-      <div id="vue-top-game" class="b-game-box conteiner">
+      <div id="vue-top-game" class="b-game-box conteiner" v-cloak>
 
         <div class="e-text">
           <div>まずは制作したゲームで遊びましょう！</div>
@@ -198,7 +198,7 @@
     </script>
 
     <!-- 一覧 -->
-    <div id="vue-work-box">
+    <div id="vue-work-box" v-cloak>
       <article id="work" class="b-work-article flex-center">
         <!-- <div class="e-bg m-white"></div> -->
         <!-- <div class="e-bg m-zigzag"></div> -->
@@ -264,7 +264,7 @@
     <!-- skill    -->
     <!-- -------- -->
     <article id="skill" class="flex-center my-5">
-      <section id="vue-skill-box" >
+      <section id="vue-skill-box" v-cloak >
         <div class="b-title-box">
           <div class="e-title-back">skill</div>
           <h2 class="e-title">スキル</h2>
@@ -315,7 +315,7 @@
           <h2 class="e-title">マイヒストリー</h2>
         </div>
 
-        <div id="vue-history-box">
+        <div id="vue-history-box" v-cloak>
           <!-- <button v-on:click="historyClose()" class="e-show-all btn btn-primary">すべてを暴露(表示)する</button> -->
 
           <div v-for="history in histories" :class="{'m-close': history.isClose}" :data-dd="history.isClose" :key="history.title">
@@ -373,7 +373,7 @@
         <div class="m-4">ご覧いただきありがとうございました。<br>
         ご感想などありましたら下記よりお送りください。</div>
         
-        <div id="vue-mail-form">
+        <div id="vue-mail-form" v-cloak>
           <form id="mail-form" @submit.prevent="sendMail" class="mt-5 mx-4 b-form" method="post" action="/">
             <div class="mb-3">
               <label for="form-name">お名前<span class="check-cercle mx-2" :class="{'is-checked': !validation.name}"></span></label>
