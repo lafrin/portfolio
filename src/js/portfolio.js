@@ -1,3 +1,23 @@
+const header = {
+  data() {
+    return {
+      names: [
+        {id: 1, title: 'top'},
+        {id: 2, title: 'game'},
+        {id: 3, title: 'about-me'},
+        {id: 4, title: 'work'},
+        {id: 5, title: 'skill'},
+        {id: 6, title: 'history'},
+        {id: 7, title: 'contact'},
+      ]
+    }
+  },
+}
+createApp(header).mount('#vue-header')
+
+//////////////////////////////
+//////////////////////////////
+//////////////////////////////
 
 const game = {
   data(){
@@ -105,7 +125,7 @@ const workData =
     {
       id: 1,
       title: '飲食アプリ',
-      files: ['haizen_01.jpg','haizen-figma.jpg', 'haizen-er.jpg'],
+      files: ['haizen-01.jpg', 'haizen-02.jpg','haizen-figma.jpg', 'haizen-er.jpg'],
       describe: '飲食店向けの注文から配膳、会計までを管理するWebアプリです。現在開発中。DB設計、UI設計など実務を想定しながら開発を進めています。',
       tool: 'PHP, Laravel 6, MySQL, jQuery, Git, bootstrap4, figma, draw.io',
       git: 'https://github.com/lafrin/haizen',
@@ -176,6 +196,7 @@ const work = createApp({
       title: 'titlaae',
       describe: '',
       tool: '',
+      path: 'public/img/work/',
       image: 'haizen_01.jpg',
       files: ['kokoiine_01.jpg','kokoiine_02.jpg'],
       git: '',
@@ -187,7 +208,7 @@ const work = createApp({
     this.title = selectWork.title
     this.describe = selectWork.describe
     this.tool = selectWork.tool
-    this.image = selectWork.files[0]
+    this.image = this.path + selectWork.files[0]
     this.files = selectWork.files
     this.git = selectWork.git
     this.url = selectWork.url
@@ -203,14 +224,14 @@ const work = createApp({
       this.title = selectWork.title
       this.describe = selectWork.describe
       this.tool = selectWork.tool
-      this.image = selectWork.files[0]
+      this.image = this.path + selectWork.files[0]
       this.files = selectWork.files
       this.git = selectWork.git
       this.url = selectWork.url
       // this.thumbnail = selectWork.thumbnail
     },
     clickThumbnail(e){
-      this.image = e.currentTarget.dataset.img
+      this.image = this.path + e.currentTarget.dataset.img
     },
     clickHideBG(){
       this.shoModal = false
@@ -248,8 +269,8 @@ createApp(Skill).mount('#vue-skill-box')
 import Chart from 'chart.js/auto';
 let ctx = document.getElementById('chartFront');
 let chartTitle = "フロントエンド";
-let labels = ['HTML/CSS', 'SCSS', 'JS', 'jQuery', 'Vue', 'WP',];
-const chart1 = makeChart(ctx, chartTitle, labels, [3,1,2,3,1,2]);
+let labels = ['HTML/CSS', 'SCSS', 'JS', 'jQuery', 'React / Vue', 'Wordpress',];
+const chart1 = makeChart(ctx, chartTitle, labels, [3,1,2,3,0,2]);
 
 ctx = document.getElementById('chartBack');
 chartTitle = "バックエンド";
@@ -370,7 +391,7 @@ let historyData =
   {
     year: 2018, 
     title: 'そしてプログラマーへ', 
-    comment: '小さい会社に就職が決まり輝かしい未来を思い描くも、教育担当の方がすぐに辞めてしまい、Android担当が自分一人という状況になる。\n引き継いだアプリを何とかリリースするも心身ともに疲弊する。',
+    comment: '小さい会社に就職が決まり輝かしい未来を思い描くも、すぐにAndroid担当が自分一人という状況になる。\n引き継いだアプリを何とかリリースするも心身ともに疲弊する。',
     image: 'smartphone.png',
     isClose: true
   },
@@ -384,7 +405,7 @@ let historyData =
   {
     year: 2019, 
     title: '妻を迎える', 
-    comment: '日本一周後すぐに結婚。新婚旅行に出発するもコロナウィルス蔓延で途中帰還する。\nなんやかんやでプログラミングは好きだったので、Web言語について学び始める。webアプリ【kokoiine】を開発。',
+    comment: '日本一周後すぐに結婚。新婚旅行に出発するもコロナウィルス蔓延で途中帰還する。\nプログラミングで日本一周の経験を生かせないかと、Web言語について学び始める。\nwebアプリ【kokoiine】を開発。',
     image: 'wedding.png',
     isClose: false
   },

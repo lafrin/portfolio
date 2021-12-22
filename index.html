@@ -8,46 +8,36 @@
   <title>Hayashida's Portfolio</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-  <!-- <link rel="stylesheet" href="public/css/app.css"> -->
-  <!-- <link rel="stylesheet" href="public/css/style.css"> -->
-  <!-- <link rel="stylesheet" href="public/css/kamihubuki.css"> -->
-  <link rel="stylesheet" href="public/css/all.css">
+  <link rel="stylesheet" href="public/css/app.css">
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/kamihubuki.css">
+  <!-- <link rel="stylesheet" href="public/css/all.css"> -->
 
 </head>
 
+<style>
+  [v-cloak]{
+    display: none;
+  }
+</style>
+
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light mt-2 px-3">
+    <nav class="navbar navbar-expand-lg navbar-light m-2 ">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link anchor" href="#game">game</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link anchor" href="#about-me">about-me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link anchor" href="#work">work</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link anchor" href="#skill">skill</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link anchor" href="#history">history</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link anchor" href="#contact">contact</a>
-            </li>
-          </ul>
+        <div id="vue-header" v-cloak>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li v-for="name in names" :key='name.id' class="nav-item">
+                <a class="nav-link anchor" :href="'#' + name.title">{{ name.title }}</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -118,10 +108,7 @@
           <a href="#about-me" :class="{'m-show': clear}" class="anchor b-top-down-arrow flex-center mt-5"><i class="down-icon bi bi-arrow-down-square"></i></a>
 
         </div>
-        
-
-      </div><!-- b-game-box end -->
-
+      </div>
 
     </article>
 
@@ -132,13 +119,14 @@
     <!-- about me -->
     <!-- -------- -->
     <article id="about-me" class="b-about-me flex-center my-5">
-      <!-- <div class="e-bg m-white"></div> -->
-      <!-- <div class="e-bg m-zigzag"></div> -->
       <section>
-        <h2>私について</h2>
+        <div class="b-title-box">
+          <div class="e-title-back">about me</div>
+          <h2 class="e-title">私について</h2>
+          <!-- <div class="e-title-border"></div> -->
+        </div>
 
         <div class="b-profile-box container">
-          <div class="b-down-arrow m-left"></div>
           <div class="row align-items-center">
             <div class="col-sm-3">
               <div class="e-img"></div>
@@ -155,11 +143,11 @@
         </div>
 
         <div class="b-links-box container">
-          <div class="row">
-            <div class="e-new-line">
-              <div class="b-down-arrow m-right"></div>
-            </div>
-            <div class="e-links col">
+          <!-- <div class="row"> -->
+            <!-- <div class="e-new-line"> -->
+            <!-- </div> -->
+            <h4 class="b-title">links</h4>
+            <div class="b-links">
               <div class="e-link">
                 blog :
                 <a href="https://kokoiine.weblike.jp/blog" target="_blank">
@@ -179,7 +167,7 @@
                 <a href="https://twitter.com/webpg_next" target="_blank">https://twitter.com/webpg_next</a>
               </div>
             </div>
-          </div>
+          <!-- </div> -->
 
         </div>
       </section>
@@ -213,11 +201,15 @@
     <div id="vue-work-box">
       <article id="work" class="b-work-article flex-center">
         <!-- <div class="e-bg m-white"></div> -->
-        <div class="e-bg m-zigzag"></div>
+        <!-- <div class="e-bg m-zigzag"></div> -->
         <section class="b-work-container my-5">
-          <h2>制作実績</h2>
+          <div class="b-title-box">
+            <div class="e-title-back">work</div>
+            <h2 class="e-title">制作実績</h2>
+          </div>
+
           <div class="container b-image-box">
-              <div class="b-down-arrow m-left"></div>
+              <!-- <div class="b-down-arrow m-left"></div> -->
               <div class="row">
                 <div class="col-md-4 col-6 mb-4" v-for="work in works" :key="work.title">
                   <div class="e-image m-haizen mb-2" type="button" @click="showWorkModal(work.id)" :style="{ backgroundImage: 'url(public/img/work/' + work.files[0] + ')' }"></div>
@@ -234,6 +226,7 @@
           <template v-slot:left>
             <div class="container">
               <div class="b-work-modal-box row">
+                <!-- 左側 -->
                 <div class="e-describe-box px-5 col-md-5">
                   <div class="e-title-box mt-2">
                     <h4 class="e-title title-bottom">{{ title }}</h4>
@@ -252,10 +245,11 @@
                   </div>
                 </div>
 
+                <!-- 右側 -->
                 <div class="e-image-box px-4 col-md-7">
-                  <div class="e-main-image" id="work-main-image" :style="{ backgroundImage: 'url(public/img/work/' + image + ')' }"></div>
+                  <a class="e-main-image" id="work-main-image" :href="image" :style="{ backgroundImage: 'url(' + image + ')' }" target="_brank"></a>
                   <div class="e-thumbnail-box">
-                    <div class="e-thumbnail" @click="clickThumbnail" v-for="file in files" :key="id" :data-img="file" :style="{ backgroundImage: 'url(public/img/work/' + file + ')' }"></div>
+                    <div class="e-thumbnail" @click="clickThumbnail" v-for="file in files" :key="id" :data-img="file" :style="{ backgroundImage: 'url(' + path + file + ')' }"></div>
                   </div>
                 </div>
               </div>
@@ -271,11 +265,16 @@
     <!-- -------- -->
     <article id="skill" class="flex-center">
       <section id="vue-skill-box" >
-        <h2>スキル</h2>
+        <div class="b-title-box">
+          <div class="e-title-back">skill</div>
+          <h2 class="e-title">スキル</h2>
+        </div>
+
         <div class="mt-4">
           <p>ひとりで何でも出来たほうが良いと思い技術を磨いてきました。<br>
             今ひとつ専門的に欠けているので、今後はバックエンドを主軸にスキルを伸ばしたいと考えています</p>
         </div>
+
         <div class="container b-skill-conteiner">
           <div class="row"> 
             <!-- <h3>フロント</h3> -->
@@ -287,9 +286,10 @@
             </div>
           </div>
         </div>
-        <ul class="mt-2">
-          <li>１：個人で実装したことがある</li>
-          <li>２：実務で実装したことがある</li>
+
+        <ul class="b-caption mt-2">
+          <li>１：個人で使用したことがある</li>
+          <li>２：実務で使用したことがある</li>
           <li>３：実務で問題なく使える</li>
           <li>４：深く理解している</li>
         </ul>
@@ -310,14 +310,17 @@
           <div class="e-square m-front"></div>
         </div> -->
 
-        <h2 class="text-center">マイヒストリー</h2>
+        <div class="b-title-box">
+          <div class="e-title-back">history</div>
+          <h2 class="e-title">マイヒストリー</h2>
+        </div>
 
         <div id="vue-history-box">
           <!-- <button v-on:click="historyClose()" class="e-show-all btn btn-primary">すべてを暴露(表示)する</button> -->
 
           <div v-for="history in histories" :class="{'m-close': history.isClose}" :data-dd="history.isClose" :key="history.title">
             <div class="b-history-box mt-4">
-              <div class="b-down-arrow m-left"></div>
+              <!-- <div class="b-down-arrow m-left"></div> -->
               <div class="e-year">{{ history.year }}</div> 
               <div class="e-history-box">
                 <h3 class="e-title">{{ history.title }}</h3>
@@ -342,7 +345,7 @@
       </section>
 
       <section class="my-5"> 
-        <h2 class="text-center">Webエンジニアへの想い</h2>
+        <h3 class="text-center">Webエンジニアへの想い</h3>
         <div class="m-4">
           <h5 class="">私にとってプログラミングはパズルです。</h5>
           <div class="">ひとつひとつ関数というピースを作り、繋ぎ合わせて組み立てて、大きな絵が出来上がる。
@@ -362,7 +365,11 @@
 
     <article class="flex-center" id="contact">
       <section class="my-5 b-form-container">
-        <h2 class="text-center">コンタクト</h2>
+        <div class="b-title-box">
+          <div class="e-title-back">contact</div>
+          <h2 class="e-title">コンタクト</h2>
+        </div>
+        
         <div class="m-4">ご覧いただきありがとうございました。<br>
         ご感想などありましたら下記よりお送りください。</div>
         
@@ -410,9 +417,9 @@
 
 
 
-<script src="public/js/all.js"></script>
-<!-- <script src="public/js/app.js"></script> -->
-<!-- <script src="public/js/portfolio.js"></script> -->
+<!-- <script src="public/js/all.js"></script> -->
+<script src="public/js/app.js"></script>
+<script src="public/js/portfolio.js"></script>
 <script src="public/js/kamihubuki.js"></script>
 
 
