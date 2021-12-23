@@ -134,8 +134,8 @@ const workData =
     {
       id: 2, 
       title: 'Hayashida\'s Portfolio', 
-      files: ['portfolio-01.jpg','portfolio-02.jpg'],
-      describe: 'このポートフォリオサイトです。一部にVueを使用しています。',
+      files: ['portfolio-01.jpg','portfolio-02.jpg', 'portfolio-03.jpg'],
+      describe: 'このポートフォリオサイトです。ゲーム部分や繰り返し要素はにVueを使用しています。\n\nもっと遊び要素を入れて楽しめるサイトにしたいと考えています。',
       tool: 'HTML, SCSS(BEM), JavaScript, Vue, chart.js',
       git: '',
       url: ''
@@ -270,17 +270,17 @@ import Chart from 'chart.js/auto';
 let ctx = document.getElementById('chartFront');
 let chartTitle = "フロントエンド";
 let labels = ['HTML/CSS', 'SCSS', 'JS', 'jQuery', 'React / Vue', 'Wordpress',];
-const chart1 = makeChart(ctx, chartTitle, labels, [3,1,2,3,0,2]);
+const chart1 = makeChart(ctx, chartTitle, labels, [4,2,3,4,0,3]);
 
 ctx = document.getElementById('chartBack');
 chartTitle = "バックエンド";
-labels = ['PHP', 'Laravel', 'Ruby', 'MySQL', ];
-const chart2 = makeChart(ctx, chartTitle, labels, [3,2,1,3]);
+labels = ['PHP', 'Laravel', 'Ruby', 'Java', 'MySQL', ];
+const chart2 = makeChart(ctx, chartTitle, labels, [4,3,1,3,4]);
 
 ctx = document.getElementById('chartEtc');
 chartTitle = "etc";
 labels = ['Windows', 'Mac', 'Linax', 'Git', 'docker', 'AWS'];
-const chart3 = makeChart(ctx, chartTitle, labels, [3,2,2,3,1,1]);
+const chart3 = makeChart(ctx, chartTitle, labels, [4,1,1,4,1,1]);
 
 function makeChart(ctx, title, labels, values){
 

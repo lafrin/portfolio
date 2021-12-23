@@ -66,8 +66,9 @@
         
         <div class="b-site-text-box">
           <h3 class="e-play-game mt-5">Let's play the game!</h3>
-
-          <a href="#game" class="anchor b-top-down-arrow flex-center m-animation"><i class="down-icon bi bi-arrow-down-square"></i></a>
+          <div class="b-top-down-box">
+            <a href="#game" class="anchor b-top-down-arrow flex-center m-animation"><i class="down-icon bi bi-arrow-down-square"></i></a>
+          </div>
         </div>
       </div>
 
@@ -149,7 +150,7 @@
             <h4 class="b-title">links</h4>
             <div class="b-links">
               <div class="e-link">
-                blog :
+                blog(memo) :
                 <a href="https://kokoiine.weblike.jp/blog" target="_blank">
                   https://kokoiine.weblike.jp/blog</a>
               </div>
@@ -158,10 +159,10 @@
                 <a href="https://github.com/lafrin?tab=repositories" target="_blank">
                   https://github.com/lafrin?tab=repositories</a>
               </div>
-              <div class="e-link">
+              <!-- <div class="e-link">
                 qiita :
                 <a href="https://qiita.com/riris-lafih" target="_blank">https://qiita.com/riris-lafih</a>
-              </div>
+              </div> -->
               <div class="e-link">
                 twitter :
                 <a href="https://twitter.com/webpg_next" target="_blank">https://twitter.com/webpg_next</a>
@@ -288,10 +289,10 @@
         </div>
 
         <ul class="b-caption mt-2">
-          <li>１：個人で使用したことがある</li>
-          <li>２：実務で使用したことがある</li>
-          <li>３：実務で問題なく使える</li>
-          <li>４：深く理解している</li>
+          <li>１：習得中</li>
+          <li>２：個人で使用したことがある</li>
+          <li>３：実務で使用したことがある</li>
+          <li>４：実務で問題なく使える</li>
         </ul>
       </section>
     </article>
@@ -382,7 +383,7 @@
             </div>
             <div class="mb-3" style="position:relative">
               <label for="form-email">メールアドレス<span class="check-cercle mx-2" :class="{'is-checked': !validation.email}"></span></label>
-              <input v-model="form.email" type="email" class="col-12 form-control" id="form-email" placeholder="name@example.com">
+              <input v-model="form.email" type="email" class="col-12 form-control" id="form-email">
               <!-- <small class='e-error' v-show="validation.email">{{ errorMessage.email }}</small> -->
             </div>
             <div class="mb-3">
