@@ -12959,7 +12959,8 @@ ul {
   border-bottom: 3px dashed #ebcd7a;
 }
 .b-work-modal-box > .e-describe-box > .e-git-box > .e-git,
-.b-work-modal-box > .e-describe-box > .e-git-box > .e-url {
+.b-work-modal-box > .e-describe-box > .e-git-box > .e-url,
+.b-work-modal-box > .e-describe-box > .e-git-box > .e-pdf {
   display: block;
   text-decoration: none;
 }

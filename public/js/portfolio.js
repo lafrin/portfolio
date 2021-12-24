@@ -15718,7 +15718,8 @@ var workData = [{
   describe: '飲食店向けの注文から配膳、会計までを管理するWebアプリです。現在開発中。DB設計、UI設計など実務を想定しながら開発を進めています。',
   tool: 'PHP, Laravel 6, MySQL, jQuery, Git, bootstrap4, figma, draw.io',
   git: 'https://github.com/lafrin/haizen',
-  url: 'https://kokoiine.weblike.jp/haizen'
+  url: 'https://kokoiine.weblike.jp/haizen',
+  pdf: ''
 }, {
   id: 2,
   title: 'Hayashida\'s Portfolio',
@@ -15726,7 +15727,8 @@ var workData = [{
   describe: 'このポートフォリオサイトです。ゲーム部分や繰り返し要素はにVueを使用しています。\n\nもっと遊び要素を入れて楽しめるサイトにしたいと考えています。',
   tool: 'HTML, SCSS(BEM), JavaScript, Vue, chart.js',
   git: '',
-  url: ''
+  url: '',
+  pdf: ''
 }, {
   id: 3,
   title: 'kokoiine!',
@@ -15734,7 +15736,8 @@ var workData = [{
   describe: '日本中のいいね（オススメポイント）だけを集める投稿型のマップです。観光地などを探すときに、オススメだけが表示されたら便利だなと思い制作しました。\nログインやメールはPHPで1から実装しています。アクセスが多すぎると課金が発生してしまうのが難点です。ファイルを分けて整理することの重要性を学びました。',
   tool: 'PHP, MySQL, jQuery, GoogleMapApi ',
   git: '',
-  url: 'https://kokoiine.weblike.jp/kokoiine/'
+  url: 'https://kokoiine.weblike.jp/kokoiine/',
+  pdf: ''
 }, // {
 //   id: 4, 
 //   title: 'javaアプリ', 
@@ -15751,7 +15754,8 @@ var workData = [{
   describe: '訓練校に通いながら開発した子供向けミニゲーム集のAndroidアプリです。『子供も大人も簡単に楽しめる』をコンセプトにしています。Androidライフサイクルを理解するのに時間がかかりました。\n\nゲームをクリアしてコインを集めると、お庭の電気ネズミにおやつを買って与えることができます。イラストはほぼ自前です。全体を通してプログラミングの楽しさを再確認できました。',
   tool: 'Android Studio 3',
   git: '',
-  url: ''
+  url: '',
+  pdf: ''
 }, {
   id: 6,
   title: 'Web CM',
@@ -15759,17 +15763,17 @@ var workData = [{
   describe: 'Youtubeの広告を作成しました。クライアントと話し合い、前半は難しく、後半にスッキリという流れで作っています。実際にお問い合わせが増えたようで、クライアントからは高評価を頂いております。',
   tool: 'AE6',
   git: '',
-  url: 'https://www.youtube.com/watch?v=ecKd-cDc8IU'
-} // {
-//   id: 7, 
-//   title: 'イラスト', 
-//   files: ['kokoiine_01.jpg','kokoiine_02.jpg'],
-//   describe: '',
-//   tool: 'phtooshop, sai',
-//   git: '',
-//   url: ''
-// },
-];
+  url: 'https://www.youtube.com/watch?v=ecKd-cDc8IU',
+  pdf: ''
+}, {
+  id: 7,
+  title: 'ゲーム、etc',
+  files: ['game_01.png'],
+  describe: '仕事で携わったゲームやイラストの一部をご紹介します。下記のpdfをご覧ください',
+  tool: 'maya, 3dsmax, photoshop, sai, etc...',
+  git: '',
+  pdf: 'https://kokoiine.weblike.jp/portfolio/public/pdf/game_portfolio.pdf'
+}];
 var work = createApp({
   data: function data() {
     return {
@@ -15782,7 +15786,8 @@ var work = createApp({
       image: 'haizen_01.jpg',
       files: ['kokoiine_01.jpg', 'kokoiine_02.jpg'],
       git: '',
-      url: ''
+      url: '',
+      pdf: ''
     };
   },
   created: function created() {
@@ -15797,6 +15802,7 @@ var work = createApp({
     this.files = selectWork.files;
     this.git = selectWork.git;
     this.url = selectWork.url;
+    this.pdf = selectWork.pdf;
   },
   computed: {},
   methods: {
@@ -15813,7 +15819,8 @@ var work = createApp({
       this.image = this.path + selectWork.files[0];
       this.files = selectWork.files;
       this.git = selectWork.git;
-      this.url = selectWork.url; // this.thumbnail = selectWork.thumbnail
+      this.url = selectWork.url;
+      this.pdf = selectWork.pdf; // this.thumbnail = selectWork.thumbnail
     },
     clickThumbnail: function clickThumbnail(e) {
       this.image = this.path + e.currentTarget.dataset.img;
